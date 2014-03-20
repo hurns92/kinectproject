@@ -1,0 +1,20 @@
+catch (IOException e)   //So over here you would have
+Button_Click(arguments...)
+                {
+                    try
+                    {
+                        FileStream aFile = new FileStream("Log.txt",
+FileMode.Append);
+                        StreamWriter sw = new StreamWriter(aFile);
+                        sw.Write("{0}", e.Message, ". ");
+                        sw.WriteLine("Error Time: {0}.",
+DateTime.Now.ToLongDateString() + "."+DateTime.Now.ToLongTimeString());
+                        sw.Close();
+                    }
+                    catch
+                    {
+                        Console.WriteLine("Error in creation of Log
+file.");
+                        return;
+                    }
+                }
